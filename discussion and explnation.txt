@@ -1,0 +1,26 @@
+The steps used are:
+before explaining the code:
+I took 5 samples photos from two sources which are: a textbook for my networks course and a slide from agile software course I saved them in the user location so it can be easy to read them from that path.
+I installed the pytesseract library after downloading it.
+
+code steps:
+1- I imported 2 libraries: the cv2 & and the pytesseract ( imported as "ocr" for simplicity).
+2- I mentioned the location in my system which tesseract-ocr is installed at
+3- I read the sample images using the "cv2.imread function( and i put here my sample images.format)" and stored them in a variable called"img"
+4- i preprocessed my samples using two steps: 
+      1- converting the image to grayscale using the "cv2.cvtColor" that takes 
+	 two parameters (img, cv2.COLOR_BGR2GRAY)--> the "cv2.COLOR_BGR2GRAY" parameter convert an RGB image "img" to gray scale image.
+      2- Apllying a threshold to the converted image and storing the resulted image in a variable called thresh by the cv2.threshold function.
+
+Note: the thresholding functions takes 4 parameters: the first is the image required to apply threshold to, the second is the min threshold value, the third is the max threshold value and lastly the type of thresholding needed.
+5- then I created a text file called result and flushed it.
+6- the I opened the file in the append mode
+7- I applied my ocr on the "thresh" image and stored it in "text_result".
+8- I printed the text in the console for myself using print(text_result)
+9- Then I appended the text in "text_result" to the text file using: result.write(text_result) & resut.write("\n") 
+10-then I closed that file using "result.close()".
+when I open the file I find the text in the image 
+
+to count the number of charecters: I used the print function giving it the parameters as the length of by len"text_result" and subtracting spaces and new lines by (text_result.count(' ') + text_result.count('\n') ))
+
+
